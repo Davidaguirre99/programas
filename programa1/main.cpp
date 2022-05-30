@@ -6,5 +6,7 @@ int main()
 {
     Estado estado;
     estado.printEstado();
+    estado.funcionSucesor();
+    estado.printEstado();
     return 0;
 }
