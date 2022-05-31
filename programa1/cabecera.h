@@ -33,27 +33,32 @@ class Estado{
                 case 1:
                     if(e[1]>=2){
                         e[1]=e[1]-2;
+                        e[2]=e[2]-1;
                     }
                     break;
                 case 2:
                     if(e[0]>=2){
                         e[0]=e[0]-2;
+                        e[2]=e[2]-1;
                     }
                     break;
                 case 3:
                     if(e[0]>0){
                         e[0]=e[0]-1;
+                        e[2]=e[2]-1;
                     }
                     break;
                 case 4:
                     if(e[1]>0){
                         e[1]=e[1]-1;
+                        e[2]=e[2]-1;
                     }
                     break;
                 case 5:
                     if(e[0]>0&&e[1]>0){
                         e[0]=e[0]-1;
                         e[1]=e[1]-1;
+                        e[2]=e[2]-1;
                     }
                     break;
                 default:
@@ -64,27 +69,32 @@ class Estado{
                 case 1:
                     if(e[1]<2){
                         e[1]=e[1]+2;
+                        e[2]=e[2]+1;
                     }
                     break;
                 case 2:
                     if(e[0]<2){
                         e[0]=e[0]+2;
+                        e[2]=e[2]+1;
                     }
                     break;
                 case 3:
                     if(e[0]<3){
                         e[0]=e[0]+1;
+                        e[2]=e[2]-1;
                     }
                     break;
                 case 4:
                     if(e[1]<3){
                         e[1]=e[1]+1;
+                        e[2]=e[2]+1;
                     }
                     break;
                 case 5:
                     if(e[0]<3&&e[1]<3){
                         e[0]=e[0]+1;
                         e[1]=e[1]+1;
+                        e[2]=e[2]+1;
                     }
                     break;
                 default:
