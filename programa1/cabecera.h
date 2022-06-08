@@ -194,7 +194,7 @@ public:
     }else{
       return false;
     }
-  }
+  };
 
 };
 class Frontera{
@@ -286,7 +286,7 @@ public:
       cout<<endl;
     }
     cout<<"}\n";
-  }
+  };
 };
 class Visitados{
 public:
@@ -359,6 +359,19 @@ public:
       return false;
     }
 
+  };
+  void printFrontera(){
+    cout<<"Visitadoos Elementos\n";
+    cout<<"{\t";
+    if(cantidadElementosVisitados>0){
+      for(int i=0;i<cantidadElementosVisitados;i++){
+        cout<<"[ ";
+        nodosVisitados[i]->estado.printEstado();
+        cout<<" ]";
+      }
+      cout<<endl;
+    }
+    cout<<"}\n";
   };
 };
 
