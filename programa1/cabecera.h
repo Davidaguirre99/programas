@@ -138,7 +138,7 @@ public:
           aux.cmb[j]=estado.cmb[j]+(factor*accion[j][i]);
         }
         if(aux.cmb[0]>aux.cmb[1]||aux.cmb[0]<0||aux.cmb[1]<0||aux.cmb[0]>3||aux.cmb[1]>3
-        ||((3-aux.cmb[0]>3-aux.cmb[1])&&aux.cmb[1]<0)){//&&aux.cmb[1]<3
+        ||((3-aux.cmb[0]>3-aux.cmb[1])&&aux.cmb[1]<3)){//&&aux.cmb[1]<3
           accionesValidas[i]=0;
           cantidadHijos--;
         }
@@ -195,7 +195,17 @@ public:
       return false;
     }
   };
-
+  void printHijos(){
+    cout<<"Padre"<<endl;
+    estado.printEstado();
+    if(factorRamificacion>0){
+      for(int i=0;i<factorRamificacion;i++){
+        cout<<"hijo"<<endl;
+        hijos[i]->estado.printEstado();
+        cout<<endl;
+      }
+    }
+  };
 };
 class Frontera{
 public:

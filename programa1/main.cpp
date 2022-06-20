@@ -27,6 +27,7 @@ Nodo* busquedaSolucion(Nodo* n){
     frontera.eliminarElemento(nodoActual);
     cantidadNodosFrontera=frontera.cantidadElementosFrontera;
     nodoActual->funcionSucesor();
+    nodoActual->printHijos();
     for(int i=0;i<nodoActual->factorRamificacion;i++){
       chijo=nodoActual->hijos[i]->estado.cmb[0];
       mhijo=nodoActual->hijos[i]->estado.cmb[1];

@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1655187417 source:c:\users\david\documents\davidaguirre\8vosemestre\inteligencia_artificial\programas\funcionidoneidad\main.cpp
+	<iostream>
+	"geneticos.h"
+
+1655222704 c:\users\david\documents\davidaguirre\8vosemestre\inteligencia_artificial\programas\funcionidoneidad\geneticos.h
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<iterator>
+	<map>
+
