@@ -8,9 +8,7 @@ int main()
     Nodo nodoRaiz;
     nodoRaiz.funcionSucesor();
     cout<<"Nodo = ";
-    for(int i=0;i<3;i++){
-      cout<<nodoRaiz.estado.cmb[i]<<"\t";
-    }
+    nodoRaiz.estado.printEstado();
     cout<<endl;
     return 0;
 }

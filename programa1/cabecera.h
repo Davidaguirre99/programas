@@ -64,12 +64,8 @@ public:
         printAcciones();
         cin>>accion;
         int factor=1;
-        int accionesPosibles[5];
         if(estado.cmb[2]==1) {
           factor=-1;
-        }
-        for(int i=1;i<=5;i++){
-            accionesPosibles[i]=1;
         }
         switch(accion) {
           case 1:
