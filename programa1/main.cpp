@@ -10,6 +10,7 @@ Nodo* busquedaSolucion(Nodo* n){
   int hijosMismoNivel=0;
   frontera.nuevoElemento(n);
   //visitados.nuevoElemento(n);
+  //Creo variables para debug
   int c=0;
   int m=0;
   int b=1;
@@ -17,13 +18,19 @@ Nodo* busquedaSolucion(Nodo* n){
   int mhijo=0;
   int bhijo=0;
   int cantidadNodosFrontera=0;
+  //Lleno cuantos nodos hay en frontera
   cantidadNodosFrontera=frontera.cantidadElementosFrontera;
+  //Mientras que haya un elemento en la frontera
   while(cantidadNodosFrontera>0){
     Nodo* nodoActual;
     nodoActual=frontera.elementosFrontera[0];
+    //Se asginan estos elementos para debug
     c=nodoActual->estado.cmb[0];
     m=nodoActual->estado.cmb[1];
     b=nodoActual->estado.cmb[2];
+    if(nodoActual->esEstadoObjetivo()){
+      return nodoActual;
+    }
     frontera.eliminarElemento(nodoActual);
     cantidadNodosFrontera=frontera.cantidadElementosFrontera;
     nodoActual->funcionSucesor();
@@ -49,35 +56,6 @@ Nodo* busquedaSolucion(Nodo* n){
     visitados.nuevoElemento(nodoActual);
     visitados.printFrontera();
   }
-//  //Implementacion de la busqueda
-//  cout<<"frontera inicial = ";
-//  frontera.elementosFrontera[0]->estado.printEstado();
-//  int i=0;
-//      do{
-//        frontera.printFrontera();
-//        visitados.printFrontera();
-//        temporal=frontera.elementosFrontera[i];
-//        if(frontera.elementosFrontera[i]->esEstadoObjetivo()){
-//          return temporal;
-//        }else{
-//          if(!visitados.existeNodoEnFrontera(temporal)){
-//              visitados.nuevoElemento(temporal);
-//          }
-//          frontera.elementosFrontera[i]->funcionSucesor();
-//          cout<<"numero ramificacion";
-//          cout<<frontera.elementosFrontera[i]->factorRamificacion;
-//          for(int j=0;j<frontera.elementosFrontera[i]->factorRamificacion;j++){
-//              bool existe = visitados.existeNodoEnFrontera(temporal->hijos[j]);
-//              if(!existe){
-//                  frontera.nuevoElemento(temporal->hijos[j]);
-//              }
-//          }
-//          frontera.eliminarElemento(temporal);
-//
-//        }
-//        i++;
-//      }while(frontera.cantidadElementosFrontera>0);
-//  return temporal;
 }
 int main()
 {
@@ -86,15 +64,6 @@ int main()
     nodoActual=nodoRaiz.autoApuntador();
     Nodo* respuesta;
     nodoRaiz.estado.printEstado();
-    //nodoActual->funcionSucesor();
-//    for(int i=0;i<nodoActual->factorRamificacion;i++){
-//      cout<<"c[i]";
-//      nodoActual->hijos[i]->estado.printEstado();
-//    }
-    respuesta = busquedaSolucion(nodoActual)->autoApuntador();
-    cout<<"respuesta=";
-    respuesta->estado.printEstado();
-    //respueta=nodoRaiz.funcionSucesor();
-
+    busquedaSolucion(nodoActual)->autoApuntador();
     return 0;
 }

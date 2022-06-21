@@ -59,13 +59,16 @@ public:
   int verificarCantidadDeParesReinasAtacandoseMismaFila(int fila){
     int contador=0;
     for(int j=0;j<cantidadFilasColumnas;j++){
-      if(tableroConReinasCadaFila[fila][j]==1 && !verificarPosicionYaVisitada(fila,j)){
+      if(tableroConReinasCadaFila[fila][j]==1){
         contador++;
       }
     }
-    contador--;
+    if(contador==0){
+      return contador;
+    }
+    contador=contador-1;
     return contador;
-  }
+  };
   int verificarCantidadDeReinasMismaDiagonal(int fila, int columna){
     int sumadorRestador=1;
     //se asume que se le pasa  fila y columna de posicion de reina
@@ -82,15 +85,20 @@ public:
       if(filaSumada<8&&filaSumada>=0&&columnaSumada>=0&&columnaSumada<8){
         if(tableroConReinasCadaFila[filaSumada][columnaSumada]==1 && !verificarPosicionYaVisitada(filaSumada,columnaSumada)){
           posicionesReinasAtacandose.insert(pair<int,int> (filaSumada,columnaSumada));
+          posicionesReinasAtacandose.insert(pair<int,int> (fila,columna));
           contadorReinasMismaDiagonal++;
         }
       }
       if(columnaRestada<8&&columnaRestada>=0&&filaRestada<8&&filaRestada>=0){
         if(tableroConReinasCadaFila[filaRestada][columnaRestada]==1 && !verificarPosicionYaVisitada(filaRestada,columnaRestada)){
           posicionesReinasAtacandose.insert(pair<int,int> (filaRestada,columnaRestada));
+          posicionesReinasAtacandose.insert(pair<int,int> (fila,columna));
           contadorReinasMismaDiagonal++;
         }
       }
+    }
+    if(contadorReinasMismaDiagonal==0){
+      return contadorReinasMismaDiagonal;
     }
     contadorReinasMismaDiagonal--;
     return contadorReinasMismaDiagonal;
@@ -106,19 +114,19 @@ public:
   };
   //FUNCION IDONEIDAD
   int funcionIdoneidad(){
+    int sumadorCantidadReinasMismaFila=0;
+    int sumadorMismaDiagonal=0;
     int sumador=0;
     for(int i=0;i<cantidadFilasColumnas;i++){
+      sumadorCantidadReinasMismaFila+=verificarCantidadDeParesReinasAtacandoseMismaFila(i);
       for(int j=0;j<cantidadFilasColumnas;j++){
-        if(tableroConReinasCadaFila[i][j]==1 && !verificarPosicionYaVisitada(i,j)){
-          if(sumador<8){
-              sumador+=verificarCantidadDeParesReinasAtacandoseMismaFila(i);
-              sumador+=verificarCantidadDeReinasMismaDiagonal(i,j);
-          }else{
-            return sumador--;
-          }
+        if(tableroConReinasCadaFila[i][j]==1){
+          sumadorMismaDiagonal+=verificarCantidadDeReinasMismaDiagonal(i,j);
         }
       }
     }
+    sumador=8-sumadorCantidadReinasMismaFila-sumadorMismaDiagonal;
+    return sumador;
   };
 };
 

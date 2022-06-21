@@ -125,7 +125,8 @@ public:
       accion[0][4]=0;
       accion[1][4]=1;
       accion[2][4]=1;
-
+      cout<<"Nodo que estoy viendo:";
+      estado.printEstado();
       int accionesValidas[5] = {1,1,1,1,1};
       for (int i=0;i<5;i++){
         Estado aux;
@@ -137,12 +138,14 @@ public:
         for(int j=0; j<3; j++){
           aux.cmb[j]=estado.cmb[j]+(factor*accion[j][i]);
         }
+        int canibalesDerecha=3-aux.cmb[0];
+        int misionerosDerecha=3-aux.cmb[1];
         if(aux.cmb[0]>aux.cmb[1]||aux.cmb[0]<0||aux.cmb[1]<0||aux.cmb[0]>3||aux.cmb[1]>3
-        ||((3-aux.cmb[0]>3-aux.cmb[1])&&aux.cmb[1]<3)){//&&aux.cmb[1]<3
+        ||((canibalesDerecha>misionerosDerecha)&&aux.cmb[1]<3)){//&&aux.cmb[1]<3
           accionesValidas[i]=0;
           cantidadHijos--;
         }
-      }
+      };
       //Se expanden los nodos hijos posibles de las acciones validadas anteriormente
       expandir(cantidadHijos);
       //Se setea los arreglos de los hijos en base a las acciones
