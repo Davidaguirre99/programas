@@ -11,3 +11,15 @@
 	<iomanip>
 	<cstdlib>
 
+1655958944 source:c:\users\david\documents\davidaguirre\8vosemestre\inteligencia_artificial\programas\proyecto_ib_ia\main.cpp
+	<iostream>
+	"Recursos.h"
+
+1656028944 c:\users\david\documents\davidaguirre\8vosemestre\inteligencia_artificial\programas\proyecto_ib_ia\recursos.h
+	<iostream>
+	<string>
+	<sstream>
+	<ctime>
+	<iomanip>
+	<cstdlib>
+
