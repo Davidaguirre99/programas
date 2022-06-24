@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1655958944 source:d:\users\frankz\documents\c++\proyecto_ib_ia\main.cpp
+	<iostream>
+	"Recursos.h"
+
+1656028944 d:\users\frankz\documents\c++\proyecto_ib_ia\recursos.h
+	<iostream>
+	<string>
+	<sstream>
+	<ctime>
+	<iomanip>
+	<cstdlib>
+
