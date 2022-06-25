@@ -1,9 +1,11 @@
 #include <iostream>
-
+#include "criptoaritmética.h"
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Estado estado;
+    estado.todosDiferentes();
+    estado.printEstado();
     return 0;
 }

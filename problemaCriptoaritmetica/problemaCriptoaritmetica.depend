@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1656136256 source:c:\users\david\documents\davidaguirre\8vosemestre\inteligencia_artificial\programas\problemacriptoaritmetica\main.cpp
+	<iostream>
+	"criptoaritmética.h"
+
+1656136743 c:\users\david\documents\davidaguirre\8vosemestre\inteligencia_artificial\programas\problemacriptoaritmetica\criptoaritmética.h
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
